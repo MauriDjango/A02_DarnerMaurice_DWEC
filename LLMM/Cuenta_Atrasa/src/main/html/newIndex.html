@@ -1,0 +1,84 @@
+<!doctype html5>
+<html>
+<head>
+    <meta enctype="utf-8">
+    <title>Cuenta Atras</title>
+    <script>
+        var n = 99;
+        var hunnedSecs; // Segundos hasta 00.00
+        var paused = false;
+
+        function countInterval() {
+            hunnedSecs = setInterval(count, 10);
+        }
+
+        function count() {
+            if (!paused) {
+                if (n > 0) {
+                    n--;
+                } else {
+                    clearInterval(hunnedSecs);
+                    window.close(); //No cierra paginas en firefox
+                }
+                updateDisplay();
+            }
+        }
+
+        function updateDisplay() {
+
+            var segundos = Math.floor(n / 100);
+            var minutos = Math.floor((n / 100) / 60);
+            var horas = Math.floor(((n / 100) / 60) / 60); // 1 hora resulta en NaN
+
+
+            segundos = segundos.toString().padStart(2, '0');
+            minutos = minutos.toString().padStart(2, '0');
+            horas = horas.toString().padStart(2, '0');
+
+            document.getElementById("time").textContent = horas + ":" + minutos + ":" + segundos;
+        }
+
+        function pause() {
+            paused = !paused;
+            var button = document.getElementById("pause");
+            button.textContent = paused ? "Continue" : "Pause";
+        }
+
+        function resetCountdown() {
+            clearInterval(hunnedSecs);
+            n = 99;
+            updateDisplay();
+            paused = false;
+            document.getElementById("pause").textContent = "Pause";
+        }
+
+        window.onload = countInterval;
+    </script>
+</head>
+<body>
+<div id="clock">
+    <span id="time">99:00:00</span>
+</div>
+<button onclick="pause()" id="pause">Pause</button>
+<button onclick="resetCountdown()">Reset</button>
+<script>
+    // Extra: Countdown input
+    var countdownInput = document.createElement("input");
+    countdownInput.type = "number";
+    countdownInput.min = "1";
+    countdownInput.value = "60";
+    document.body.appendChild(countdownInput);
+
+    var start = document.createElement("button");
+    start.textContent = "Start";
+    start.onclick = function() {
+        clearInterval(hunnedSecs);
+        n = parseInt(countdownInput.value) * 100;
+        updateDisplay();
+        countInterval();
+    };
+    document.body.appendChild(start);
+</script>
+</body>
+</html>
+
