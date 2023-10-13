@@ -1,0 +1,179 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/* Style for the entire exercise container */
+.exercise-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the exercise title */
+.exercise-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Style for exercise description */
+.exercise-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Style for the exercise content */
+.exercise-content {
+  font-size: 18px;
+}
+
+/* Style for exercise input section */
+.exercise-input {
+  background-color: #e0f7fa;
+  border: 1px solid #00bcd4;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+/* Style for exercise result section */
+.exercise-result {
+  background-color: #dcedc8;
+  border: 1px solid #8bc34a;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.exercises-container {
+  background-color: #f5f5f5; /* Background color */
+  border: 2px solid #ccc;   /* Border style */
+  padding: 20px;            /* Padding around the content */
+  margin: 20px;             /* Margin to create space around the div */
+  border-radius: 5px;       /* Rounded corners */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Box shadow for depth effect */
+}
+
+.exercises-container h2 {
+  font-size: 24px;          /* Font size for headings */
+  color: #333;              /* Text color */
+}
+
+.exercise-list {
+  list-style: none;         /* Remove bullet points from list */
+  padding: 0;               /* Remove default list padding */
+}
+
+.exercise-list-item {
+  margin-bottom: 10px;      /* Spacing between list items */
+  border-bottom: 1px solid #ccc; /* Separator between items */
+  padding-bottom: 5px;      /* Padding for each list item */
+}
+
+.exercise-list-item:last-child {
+  border-bottom: none;      /* Remove separator for the last item */
+}
+
+/* Styling for exercise titles and descriptions within each list item */
+.exercise-list-item .exercise-title {
+  font-weight: bold;
+}
+
+.exercise-list-item .exercise-description {
+  color: #555;
+}
+
+
+/* Style for code blocks */
+.code-block {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: monospace;
+}
+
+/* Style for inline code */
+.inline-code {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-family: monospace;
+}
+
+/* Style for alerts or important notes */
+.alert {
+  background-color: #ffeeba;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Style for buttons */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Style for links */
+.link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hover effect for links */
+.link:hover {
+  text-decoration: underline;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
