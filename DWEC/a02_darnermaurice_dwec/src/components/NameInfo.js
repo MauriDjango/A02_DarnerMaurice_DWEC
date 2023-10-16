@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../App.css';
 
 // Regular expression to match a full name with three parts (e.g., First Last1 Last2)
-const nameRegex = /([a-zA-z]+)\s+([a-zA-z]+)\s+([a-zA-z]+)/g;
+const nameRegex = /([a-zA-Z]+)\s+([a-zA-Z]+)\s+([a-zA-Z]+)/g;
 
 const NameInfo = () => {
     // State variables to manage various aspects of user input and computed data
@@ -66,7 +66,11 @@ const NameInfo = () => {
                     value={input}
                     onChange={(e) => {
                         setInput(e.target.value); // Update the state with the current input value
+                        console.log(e.target.value)
+                        console.log(input)
+                        console.log(match, " 1")
                         setMatch(nameRegex.exec(e.target.value)); // Update the match state with the result of the regex
+                        console.log(match, " 2")
                     }}
                 />
                 <button onClick={showInfo} className="button">Show Info</button>

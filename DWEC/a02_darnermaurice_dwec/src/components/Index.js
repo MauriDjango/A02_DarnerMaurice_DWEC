@@ -28,19 +28,19 @@ const exerciseMetadata = [
         description: 'Write a script that displays the current time'
     },
     {
-        title: 'Exercise 4',
+        title: 'Exercise 5',
         description: 'Write a script that houses different recipes'
     },
     {
-        title: 'Exercise 5',
+        title: 'Exercise 6',
         description: 'Write a script that shows a table of different competing soccer teams and their points'
     },
     {
-        title: 'Exercise 6',
+        title: 'Exercise 7',
         description: 'Write a script that opens a new window'
     },
     {
-        title: 'Exercise 7',
+        title: 'Exercise 8',
         description: 'Write a script that displays cookies'
     }
 ]

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import TeamsTable from './TeamsTable';
-import AddTeamForm from './AddTeamForm';
+import TeamTable from './TeamTable';
+import AddTeam from './AddTeam';
 
 /**
  * Component for managing a list of teams, displaying a table of teams,
@@ -39,9 +39,9 @@ const TeamsPage = () => {
         <div>
             <h1>Team Table</h1>
             {/* Display the TeamsTable component with the list of teams. */}
-            <TeamsTable teams={teams} />
+            <TeamTable teams={teams} />
             {/* Display the AddTeamForm component for adding new teams. */}
-            <AddTeamForm addTeam={addTeam} />
+            <AddTeam addTeam={addTeam} />
         </div>
     );
 };
