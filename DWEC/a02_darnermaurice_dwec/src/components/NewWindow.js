@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
 const NewWindow = () => {
+    // State variables to manage the popup window and its dimensions
     const [popup, setPopup] = useState(null);
     const [width, setWidth] = useState(400);
     const [height, setHeight] = useState(400);
 
+    // Function to open or recreate the popup window
     const openPopup = () => {
         if (popup && !popup.closed) {
             popup.close();
@@ -23,6 +25,7 @@ const NewWindow = () => {
         }
     };
 
+    // Function to shrink the popup window's dimensions
     const shrinkPopup = () => {
         if (width <= 160 && height <= 160) {
             expandPopup();
@@ -34,6 +37,7 @@ const NewWindow = () => {
         setTimeout(shrinkPopup, 1000);
     };
 
+    // Function to expand the popup window's dimensions
     const expandPopup = () => {
         if (width >= 400 && height >= 400) {
             return;

@@ -1,6 +1,11 @@
-// TeamsTable.js
 import React from 'react';
 
+/**
+ * Component for rendering a table of teams and their points.
+ *
+ * @param {Object[]} teams - An array of team objects, each containing a 'name' and 'points' property.
+ * @param {function} [updatePoints] - A function to update points (optional).
+ */
 const TeamsTable = ({ teams, updatePoints }) => {
     return (
         <table>

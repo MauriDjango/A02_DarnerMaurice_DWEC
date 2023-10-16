@@ -1,4 +1,3 @@
-// CircumferenceCalculator.js
 import React, { useState } from 'react';
 import '../App.css';
 
@@ -10,8 +9,9 @@ const RadiusCalculator = () => {
     const [sphereArea, setSphereArea] = useState(null);
     const [sphereVolume, setSphereVolume] = useState(null);
 
-    const  calculate = () => {
+    const calculate = () => {
         if (!isNaN(parseFloat(radius))) {
+            // Calculate various geometric properties
             setDiameter(Math.round(2 * parseFloat(radius)));
             setCircumference(Math.round(2 * Math.PI * parseFloat(radius)));
             setArea(Math.round(Math.PI * Math.pow(parseFloat(radius), 2)));
@@ -26,8 +26,8 @@ const RadiusCalculator = () => {
         <div className="exercise-container">
             <h2 className="exercise-title">Circumference Calculator</h2>
             <div className="exercise-description">
-                <h3>Write a script that asks the user for the value of the radius of a circle and displays on the screen (not in the console): </h3>
-                <br></br>
+                <h3>Write a script that asks the user for the value of the radius of a circle and displays on the screen:</h3>
+                <br />
                 <p>The value of the radius.</p>
                 <p>The value of the diameter.</p>
                 <p>The value of the circumference.</p>

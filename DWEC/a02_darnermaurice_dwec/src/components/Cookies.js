@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Cookies = () => {
+    // State to manage user data
     const [userData, setUserData] = useState({
         name: '',
         address: '',
@@ -8,7 +9,7 @@ const Cookies = () => {
         profession: '',
     });
 
-    // Load user data from cookies
+    // Load user data from cookies when the component mounts
     useEffect(() => {
         const cookieUserData = getCookies();
         if (cookieUserData) {
@@ -18,14 +19,14 @@ const Cookies = () => {
 
     // Save user data to cookies and localStorage
     const saveUserData = () => {
-        setCookies(userData);
-        localStorage.setItem('userData', JSON.stringify(userData));
+        setCookies(userData); // Set user data in cookies
+        localStorage.setItem('userData', JSON.stringify(userData)); // Store user data in localStorage
     };
 
     // Clear user data from cookies and localStorage
     const clearUserData = () => {
-        removeCookies();
-        localStorage.removeItem('userData');
+        removeCookies(); // Remove user data from cookies
+        localStorage.removeItem('userData'); // Remove user data from localStorage
         setUserData({
             name: '',
             address: '',
@@ -34,6 +35,7 @@ const Cookies = () => {
         });
     };
 
+    // Handle changes in input fields
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUserData({
@@ -72,6 +74,8 @@ const Cookies = () => {
 };
 
 // Cookie handling functions
+
+// Parse and return cookies as an object
 const getCookies = () => {
     const cookies = document.cookie.split('; ');
     const cookieData = {};
@@ -82,6 +86,7 @@ const getCookies = () => {
     return cookieData.name ? cookieData : null;
 };
 
+// Set user data as cookies
 const setCookies = (data) => {
     document.cookie = `name=${encodeURIComponent(data.name)}`;
     document.cookie = `address=${encodeURIComponent(data.address)}`;
@@ -89,6 +94,7 @@ const setCookies = (data) => {
     document.cookie = `profession=${encodeURIComponent(data.profession)}`;
 };
 
+// Remove user data cookies
 const removeCookies = () => {
     document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:00 UTC';
     document.cookie = 'address=; expires=Thu, 01 Jan 1970 00:00:00 UTC';

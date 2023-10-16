@@ -10,17 +10,18 @@ import NewWindow from "./NewWindow";
 import Cookies from "./Cookies";
 
 const exerciseMetadata = [
+    // An array of exercise metadata, each containing a title and description
     {
         title: 'Exercise 1',
-        description: 'Write a script that asks the user for the value of the radius adn displays various calculations'
+        description: 'Write a script that asks the user for the value of the radius and displays various calculations'
     },
     {
         title: 'Exercise 2',
         description: 'Write a script that asks the user their first and last name and displays information about them'
     },
     {
-      title: 'Exercise 3',
-      description: 'Write a script that asks the user to input a date and displays which week of the year it is'
+        title: 'Exercise 3',
+        description: 'Write a script that asks the user to input a date and displays which week of the year it is'
     },
     {
         title: 'Exercise 4',
@@ -28,7 +29,7 @@ const exerciseMetadata = [
     },
     {
         title: 'Exercise 4',
-        description: 'Write a script houses different recipes'
+        description: 'Write a script that houses different recipes'
     },
     {
         title: 'Exercise 5',
@@ -45,9 +46,12 @@ const exerciseMetadata = [
 ]
 
 function Index() {
-    const [selectedExercise, setSelectedExercise] = useState(null)
+    // State to keep track of the selected exercise
+    const [selectedExercise, setSelectedExercise] = useState(null);
+
+    // Function to handle exercise selection
     const handleExerciseSelection = (index) => {
-        setSelectedExercise(index)
+        setSelectedExercise(index);
     }
 
     return (
@@ -64,6 +68,7 @@ function Index() {
                 <div>
                     <h2>{exerciseMetadata[selectedExercise].title}</h2>
                     <p>{exerciseMetadata[selectedExercise].description}</p>
+                    {/* Conditional rendering of exercise components */}
                     {selectedExercise === 0 && <RadiusCalculator />}
                     {selectedExercise === 1 && <NameInfo />}
                     {selectedExercise === 2 && <WeekCalculator />}
@@ -72,11 +77,10 @@ function Index() {
                     {selectedExercise === 5 && <TeamPage />}
                     {selectedExercise === 6 && <NewWindow />}
                     {selectedExercise === 7 && <Cookies />}
-                    {/* Render other exercise components conditionally */}
                 </div>
             )}
         </div>
-    )
+    );
 }
 
 export default Index;
