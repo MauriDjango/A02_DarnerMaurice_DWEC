@@ -257,13 +257,27 @@ function calcularSumaPrecios(arr) {
 }
 
 //Exercise 14
-//TODO
-function isLeapYear(year1, year2) {
-  const leapYears = []
+function getLeapYearRange() {
+  let year1 = null
+  let year2 = null
 
-  for (let year = year1; year <= year2; year++) {
-    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
-      leapYears.push(year)
+  while (year1 === null || 2500 < year1 <= 2001) {
+    year1 = numberInput()
+  }
+  while (year2 === null || 2500 < year2 <= 2001) {
+    year2 = numberInput()
+  }
+  return [year1, year2];
+}
+
+function isLeapYear(yearArray) {
+  const leapYears = []
+  let startYear = Math.min(yearArray[0], yearArray[1])
+  const endYear = Math.max(yearArray[0], yearArray[1])
+
+  for (startYear; startYear <= endYear; startYear++) {
+    if ((startYear % 4 === 0 && startYear % 100 !== 0) || (startYear % 400 === 0)) {
+      leapYears.push(startYear)
     }
   }
   return leapYears
@@ -361,6 +375,8 @@ const char1 = createCharacter("Aragon", "Human", 5, 80);
 const char2 = createCharacter("Legolas", "Elf", 4, 60);
 
 //Exercise 17
+
+//Note all validation will be run before instancing classes and can be found at the top of this file
 class Producto {
   #minQuantity = 0;
   #name;
@@ -409,6 +425,18 @@ class Inventario {
 }
 
 //Exercise 18
+function validateDiscount(discount) {
+  if (100 > discount < 0) {
+    throw new Error("El descuento no es valido")
+  }
+}
+
+function validatePrice(price) {
+  if (price < 0) {
+    throw new Error("El precio no es valido")
+  }
+}
+
 function calcularPrecioFinal(precioBase, descuentos) {
   let result = precioBase;
 
