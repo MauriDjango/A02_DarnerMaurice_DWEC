@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros</title>
+    <script src="../index.js"></script>
+</head>
+<body>
+<h1>Lista de libros</h1>
+<ul id="lista-libros"></ul>
+
+<script>
+    // Recorrer el array y mostrar el resumen de cada libro en la página
+    const listaLibros = document.getElementById("lista-libros");
+
+    libros.forEach(libro => {
+        const li = document.createElement("li");
+        li.textContent = libro.resumen();
+        listaLibros.appendChild(li);
+    });
+</script>
+</body>
+</html>
