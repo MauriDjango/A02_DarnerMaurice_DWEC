@@ -76,31 +76,20 @@ function arrayAverage(arr) {
 }
 
 //Exercise 5
+function createBook(titulo, autor, paginas) {
+  return {
+    titulo,
+    autor,
+    paginas,
+    resumen: function() {
+      return `${this.titulo}, escrito por ${this.autor}, tiene ${this.paginas} páginas.`;
+    }
+  };
+}
 const libros = [
-  {
-    titulo: "Cien años de soledad",
-    autor: "Gabriel García Márquez",
-    paginas: 417,
-    resumen: function() {
-      return `${this.titulo}, escrito por ${this.autor}, tiene ${this.paginas} páginas.`;
-    }
-  },
-  {
-    titulo: "Don Quijote de la Mancha",
-    autor: "Miguel de Cervantes",
-    paginas: 1072,
-    resumen: function() {
-      return `${this.titulo}, escrito por ${this.autor}, tiene ${this.paginas} páginas.`;
-    }
-  },
-  {
-    titulo: "El Principito",
-    autor: "Antoine de Saint-Exupéry",
-    paginas: 96,
-    resumen: function() {
-      return `${this.titulo}, escrito por ${this.autor}, tiene ${this.paginas} páginas.`;
-    }
-  }
+  createBook("Cien años de soledad", "Gabriel García Márquez", 417),
+  createBook("Don Quijote de la Mancha", "Miguel de Cervantes", 1072),
+  createBook("El Principito", "Antoine de Saint-Exupéry", 96)
 ];
 
 //Exercise 6
@@ -178,7 +167,7 @@ function getMonthIntInput() {
 
   while (monthInt === null) {
     let input = numberInput(msg)
-    if (input !== null && 0 < input <= 12) {
+    if (input !== null && 0 < input && input <= 12) {
       monthInt = input
     }
   }
@@ -214,9 +203,10 @@ function doubleDiceThrow() {
 
 const throws = 3600
 function exercise11(throws) {
-  let results = {}
+  let results = {};
   for (let i = 0; i < throws; i++) {
-    results[doubleDiceThrow()] = results[doubleDiceThrow()]++ || 1;
+    const result = doubleDiceThrow();
+    results[result] = (results[result] || 0) + 1; // Increment the count for this result
   }
   return results;
 }
@@ -227,14 +217,15 @@ function getFindPairsInt() {
   let num1 = null
   let num2 = null
 
-  while (num1 === null || 100 < num1 <= 0) {
+  while (num1 === null || 100 < num1 || num1 < 0) {
     num1 = numberInput()
   }
-  while (num2 === null || 100 < num2 <= 0) {
+  while (num2 === null || 100 < num2 || num2 < 0) {
     num2 = numberInput()
   }
   return [num1, num2];
 }
+
 function findPairs(numArray) {
   const evenNumbers = []
   for (let i = Math.abs(numArray[0] - numArray[1]); i > 0; i--) {
@@ -261,10 +252,10 @@ function getLeapYearRange() {
   let year1 = null
   let year2 = null
 
-  while (year1 === null || 2500 < year1 <= 2001) {
+  while (year1 === null || 2500 < year1 || year1 < 2001) {
     year1 = numberInput()
   }
-  while (year2 === null || 2500 < year2 <= 2001) {
+  while (year2 === null || 2500 < year2 || year2 < 2001) {
     year2 = numberInput()
   }
   return [year1, year2];
@@ -426,7 +417,7 @@ class Inventario {
 
 //Exercise 18
 function validateDiscount(discount) {
-  if (100 > discount < 0) {
+  if (discount < 0 || discount > 100) {
     throw new Error("El descuento no es valido")
   }
 }
@@ -440,8 +431,8 @@ function validatePrice(price) {
 function calcularPrecioFinal(precioBase, descuentos) {
   let result = precioBase;
 
-  for (descuento in descuentos) {
-    result -= (result * descuento)
+  for (let descuento of descuentos) {
+    result -= (result * descuento / 100);
   }
   return result;
 }
