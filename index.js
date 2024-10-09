@@ -29,8 +29,6 @@ function validateLetters(str) {
 
 //Exercise 1
 function exercise1(num1, num2) {
-  let number1 = validateNumber(num1) ? Number(num1) : null
-  let number2 = validateNumber(num2) ? Number(num2) : null
   return Math.abs(num1 + num2).toFixed(2)
 }
 
@@ -96,7 +94,7 @@ const libros = [
 const testArray = [6, 7, 8, 9, 10]
 
 function filtrarYTransformar(arr) {
-  return arr.filter((num) => num % 2 === 0).map((num) => num * 2);
+  return arr.filter((num) => num % 2 !== 0).map((num) => num * 2);
 }
 
 //Exercise 7
@@ -202,6 +200,7 @@ function doubleDiceThrow() {
 }
 
 const throws = 3600
+
 function exercise11(throws) {
   let results = {};
   for (let i = 0; i < throws; i++) {
@@ -267,7 +266,7 @@ function isLeapYear(yearArray) {
   const endYear = Math.max(yearArray[0], yearArray[1])
 
   for (startYear; startYear <= endYear; startYear++) {
-    if ((startYear % 4 === 0 && startYear % 100 !== 0) || (startYear % 400 === 0)) {
+    if (startYear % 4 === 0 && startYear % 100 !== 0 || startYear % 400 === 0) {
       leapYears.push(startYear)
     }
   }
